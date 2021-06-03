@@ -176,7 +176,7 @@ class BST {
         }
     }
 
-    // left - right - root
+    // root - left - right 
     preOrder() {
         if ( this.root == null ) {
             return null;
@@ -192,7 +192,7 @@ class BST {
         }
     }
 
-    // root - left - right
+    //  left - right - root
     postOrder() {
         if ( this.root == null ) {
             return null;
