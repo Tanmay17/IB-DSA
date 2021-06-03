@@ -160,14 +160,53 @@ class BST {
         };
     }
 
-    // inOrder() {
-    // }
+    // left - root - right
+    inOrder() {
+        if ( this.root == null ) {
+            return null;
+        } else {
+            const result = new Array();
+            function traverseinOrder ( node ) {
+                if ( node.left ) traverseinOrder( node.left );
+                result.push( node.data );
+                if ( node.right ) traverseinOrder( node.right );
+            }
+            traverseinOrder( this.root )
+            return result;
+        }
+    }
 
-    // preOrder() {
-    // }
+    // left - right - root
+    preOrder() {
+        if ( this.root == null ) {
+            return null;
+        } else {
+            const result = new Array();
+            function traverseinOrder ( node ) {
+                result.push( node.data );
+                if ( node.left ) traverseinOrder( node.left );
+                if ( node.right ) traverseinOrder( node.right );
+            }
+            traverseinOrder( this.root )
+            return result;
+        }
+    }
 
-    // postOrder() {
-    // }
+    // root - left - right
+    postOrder() {
+        if ( this.root == null ) {
+            return null;
+        } else {
+            const result = new Array();
+            function traverseinOrder ( node ) {
+                if ( node.left ) traverseinOrder( node.left );
+                if ( node.right ) traverseinOrder( node.right );
+                result.push( node.data );
+            }
+            traverseinOrder( this.root )
+            return result;
+        }
+    }
 
     // levelOrder() {
     // }
@@ -188,5 +227,5 @@ console.log( "BST isPresent", bst.isPresent(3) );
 bst.add(10);
 console.log( "BST is Balanced: ", bst.isBalanced() );
 bst.remove(9)
-console.log(bst);
-// console.log( "BST is Balanced: ", bst.isBalanced() );
+console.log(bst.inOrder());
+console.log(bst.preOrder());
